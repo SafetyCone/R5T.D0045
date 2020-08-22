@@ -1,0 +1,4 @@
+R5T.D0045.Base - Base definitions library for source control non-file and directory type services (complement to D0039).
+
+Goals
+
