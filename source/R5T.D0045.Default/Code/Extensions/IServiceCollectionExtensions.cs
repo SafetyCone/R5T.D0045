@@ -35,5 +35,24 @@ namespace R5T.D0045.Default
 
             return serviceAction;
         }
+
+        /// <summary>
+        /// Adds the <see cref="RepositoryNameFromRemoteUrlConvention"/> implementation of <see cref="IRepositoryNameFromRemoteUrlConvention"/> as a <see cref="ServiceLifetime.Singleton"/>.
+        /// </summary>
+        public static IServiceCollection AddRepositoryNameFromRemoteUrlConvention(this IServiceCollection services)
+        {
+            services.AddSingleton<IRepositoryNameFromRemoteUrlConvention, RepositoryNameFromRemoteUrlConvention>();
+
+            return services;
+        }
+
+        /// <summary>
+        /// Adds the <see cref="RepositoryNameFromRemoteUrlConvention"/> implementation of <see cref="IRepositoryNameFromRemoteUrlConvention"/> as a <see cref="ServiceLifetime.Singleton"/>.
+        /// </summary>
+        public static IServiceAction<IRepositoryNameFromRemoteUrlConvention> AddRepositoryNameFromRemoteUrlConventionAction(this IServiceCollection services)
+        {
+            var serviceAction = ServiceAction.New<IRepositoryNameFromRemoteUrlConvention>(() => services.AddRepositoryNameFromRemoteUrlConvention());
+            return serviceAction;
+        }
     }
 }

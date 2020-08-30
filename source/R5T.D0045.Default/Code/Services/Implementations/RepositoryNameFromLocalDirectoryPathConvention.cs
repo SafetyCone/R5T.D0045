@@ -21,6 +21,7 @@ namespace R5T.D0045.Default
 
         public Task<RepositoryName> GetRepositoryNameFromLocalDirectoryPath(LocalRepositoryDirectoryPath localRepositoryDirectoryPath)
         {
+            // Example: C:\Code\DEV\Git\GitHub\SafetyCone\R5T.Aalborg\
             var directoryPath = localRepositoryDirectoryPath.Value;
 
             var repositoryDirectoryName = this.StringlyTypedPathOperator.GetDirectoryNameForDirectoryPath(directoryPath);
@@ -34,7 +35,11 @@ namespace R5T.D0045.Default
             var remoteRepositoryProviderDirectoryName = this.StringlyTypedPathOperator.GetDirectoryNameForDirectoryPath(remoteRepositoryProviderDirectoryPath);
 
             // Convention is to directly use the directory names.
-            var repositoryNameValue = $"{remoteRepositoryProviderDirectoryName}/{organizationDirectoryName}/{repositoryDirectoryName}";
+            var remoteRepositoryProviderNameToken = remoteRepositoryProviderDirectoryName;
+            var organizationNameToken = organizationDirectoryName;
+            var repositoryNameToken = repositoryDirectoryName;
+
+            var repositoryNameValue = $"{remoteRepositoryProviderNameToken}/{organizationNameToken}/{repositoryNameToken}";
 
             var repositoryName = RepositoryName.From(repositoryNameValue);
 
