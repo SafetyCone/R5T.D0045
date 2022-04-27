@@ -2,15 +2,16 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-using R5T.T0010;
-
-using R5T.Magyar;
 using R5T.Magyar.Extensions;
+
+using R5T.T0010;
+using R5T.T0064;
 
 
 namespace R5T.D0045.Default
 {
-    public class RepositoryNameFromRemoteUrlConvention : IRepositoryNameFromRemoteUrlConvention
+    [ServiceImplementationMarker]
+    public class RepositoryNameFromRemoteUrlConvention : IRepositoryNameFromRemoteUrlConvention, IServiceImplementation
     {
         public Task<RepositoryName> GetRepositoryNameFromRemoteUrl(RemoteRepositoryUrl remoteRepositoryUrl)
         {

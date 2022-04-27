@@ -4,11 +4,14 @@ using System.Threading.Tasks;
 using R5T.Lombardy;
 
 using R5T.T0010;
+using R5T.T0064;
 
 
 namespace R5T.D0045.Default
 {
-    public class RepositoryNameFromLocalDirectoryPathConvention : IRepositoryNameFromLocalDirectoryPathConvention
+    [ServiceImplementationMarker]
+    public class RepositoryNameFromLocalDirectoryPathConvention : IRepositoryNameFromLocalDirectoryPathConvention,
+        IServiceImplementation
     {
         private IStringlyTypedPathOperator StringlyTypedPathOperator { get; }
 
